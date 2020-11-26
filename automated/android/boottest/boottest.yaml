@@ -11,7 +11,6 @@ metadata:
                   ANDROID_SERIAL environment variable before running the scripts"
     maintainer:
         - yongqin.liu@linaro.org
-        - chase.qi@linaro.org
     os:
         - android
     scope:
@@ -40,6 +39,7 @@ run:
         - sleep 300
         - cd ./automated/android/boottest
         - . ../../lib/sh-test-lib
+        - ./update-udev.sh
         # delete the test user to clean environment
         - id
         - lsusb -v > lsusb-v-root-before-root-reboot.txt
@@ -48,7 +48,7 @@ run:
         - userdel testuser -r -f || true
         # create test use to run the cts/vts tests
         - useradd -m testuser && echo "testuser created successfully"
-        - usermod -aG root,plugdev testuser
+        - usermod -aG plugdev testuser
         - chown testuser:testuser .
         - sudo -u testuser adb devices
         - sudo -u testuser adb shell id

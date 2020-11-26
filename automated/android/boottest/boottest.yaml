@@ -47,7 +47,8 @@ run:
         - adb shell id
         - userdel testuser -r -f || true
         # create test use to run the cts/vts tests
-        - useradd -m testuser -g root && echo "testuser created successfully"
+        - useradd -m testuser && echo "testuser created successfully"
+        - usermod -aG root testuser
         - chown testuser:testuser .
         - sudo -u testuser adb devices
         - sudo -u testuser adb shell id

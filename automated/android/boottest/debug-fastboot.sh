@@ -3,7 +3,8 @@
 # check the user that run this script
 id
 echo "----fastboot devices list from /sys/bus/usb/devices start----"
-ls /sys/bus/usb/devices/*/serial | while read -r device; do
+#ls /sys/bus/usb/devices/*/serial | while read -r device; do
+ls /sys/bus/usb/drivers/usb/*/serial | while read -r device; do
     basedir=$(dirname ${device})
     basedir_name=$(basename ${basedir})
     #interface_dir="/sys/bus/usb/devices/${basedir_name}/${basedir_name}:1.*"

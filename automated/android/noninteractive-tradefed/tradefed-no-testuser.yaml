@@ -48,7 +48,7 @@ run:
         - echo "after ./setup.sh"
         - if echo "${TEST_REBOOT_EXPECTED}" |grep -i "true" ; then ./monitor_fastboot.sh & fi
         - ./monitor_adb.sh &
-        - ./tradefed.sh  -o "${TIMEOUT}" -c "${TEST_URL}" -t "${TEST_PARAMS}" -p "${TEST_PATH}" -r "${RESULTS_FORMAT}" -n "${ANDROID_SERIAL}" -f "${FAILURES_PRINTED}" -a "${AP_SSID}" -k "${AP_KEY}" || true
+        - ./tradefed.sh  -o "${TIMEOUT}" -c "${TEST_URL}" -t "${TEST_PARAMS}" -p "${TEST_PATH}" -r "${RESULTS_FORMAT}" -f "${FAILURES_PRINTED}" -a "${AP_SSID}" -k "${AP_KEY}" || true
         # Upload test log and result files to artifactorial.
         - cp -r ./${TEST_PATH}/results ./output/ || true
         - cp -r ./${TEST_PATH}/logs ./output/ || true

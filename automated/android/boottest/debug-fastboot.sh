@@ -2,8 +2,6 @@
 
 # check the user that run this script
 id
-# check the owner and group of the android devices
-ls -l /dev/bus/usb/*/*
 echo "----fastboot devices list from /sys/bus/usb/devices start----"
 ls /sys/bus/usb/devices/*/serial | while read -r device; do
     basedir=$(dirname ${device})
@@ -29,3 +27,7 @@ echo "----fastboot devices list from /sys/bus/usb/devices end----"
 echo "----fastboot devices list from fastboot devices command start----"
 fastboot devices
 echo "----fastboot devices list from fastboot devices command end----"
+# check the owner and group of the android devices
+echo "----list usb devices owner and group start----"
+ls -l /dev/bus/usb/*/*
+echo "----list usb devices owner and group end----"

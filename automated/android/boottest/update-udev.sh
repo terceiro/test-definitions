@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 target_user="testuser"
 # https://developer.android.com/studio/run/device.html
@@ -24,4 +24,5 @@ sudo chmod a+r /etc/udev/rules.d/51-android.rules
 
 # Restart UDEV
 sudo udevadm control --reload-rules
+sudo udevadm trigger
 sudo service udev restart

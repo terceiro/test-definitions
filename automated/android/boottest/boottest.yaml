@@ -35,8 +35,6 @@ params:
 
 run:
     steps:
-        # wait for 300 seconds, when the device should be booted
-        - sleep 300
         - cd ./automated/android/boottest
         - . ../../lib/sh-test-lib
         - ./update-udev.sh
